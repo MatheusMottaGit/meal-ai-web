@@ -51,6 +51,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        licorice: "#18020C"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,7 +74,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-      },
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
