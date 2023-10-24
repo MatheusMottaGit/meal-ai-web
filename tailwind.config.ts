@@ -51,7 +51,8 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        licorice: "#18020C"
+        'reseda-green': "#6E9075",
+        'nyanza': '#E4FFE1'
       },
       borderRadius: {
         lg: "var(--radius)",

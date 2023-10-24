@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("font-sans text-muted-foreground", fontSans.variable)}>
+      <body className={cn("font-sans text-nyanza", fontSans.variable)}>
         {children}
       </body>
     </html>
