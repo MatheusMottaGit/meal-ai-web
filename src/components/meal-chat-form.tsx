@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Label } from './ui/label'
 import { UtensilsCrossed } from 'lucide-react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+import PromptSelect from './prompt-select'
 
 const MealChatForm = () => {
   return (
@@ -16,19 +16,7 @@ const MealChatForm = () => {
             <Input placeholder="Digite os ingredientes da sua refeição separados por vírgula" />
           </div>
 
-          <div>
-            <Label>Prompt</Label>
-            <Select>
-              <SelectTrigger>
-                <SelectValue className='text-muted-foreground' placeholder='Selecione um prompt de comando' />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value='nova receita'>Opções de receitas com os ingredientes</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
+          <PromptSelect />
         </div>
 
         <Button className="gap-1 w-full" variant='outline'>
