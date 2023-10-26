@@ -3,7 +3,7 @@ import { Inter as FontSans, Roboto } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { ChefHat, ShoppingBag } from 'lucide-react'
+import { ChefHat, BookOpen } from 'lucide-react'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -43,8 +43,8 @@ export default function RootLayout({
             </ul>
 
             <Button variant='outline' className='gap-2 text-zinc-300 text-xs'>
-              Ver produtos
-              <ShoppingBag className='w-4 h-4' />
+              Ver histórico
+              <BookOpen className='w-4 h-4' />
             </Button>
           </header>
 
