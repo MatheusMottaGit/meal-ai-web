@@ -9,14 +9,26 @@ interface Prompt {
   template: string
 }
 
+interface PromptSelectedProps {
+  onPromptSelected: (template: string) => void
+}
+
 const PromptSelect = async () => {
   const response = await api.get('/prompts')
   const prompts: Prompt[] = response.data
 
+  function handlePromptSelected(promptId: string) {
+    const selectedPrompt = prompts.find(prompt => promptId === prompt.id)
+
+    if (!selectedPrompt) {
+      return
+    }
+  }
+
   return (
     <div>
       <Label>Prompt</Label>
-      <Select>
+      <Select onValueChange={handlePromptSelected}>
         <SelectTrigger>
           <SelectValue className='text-muted-foreground' placeholder='Selecione um prompt de comando' />
         </SelectTrigger>

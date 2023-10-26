@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Label } from './ui/label'
 import { UtensilsCrossed } from 'lucide-react'
 import { Button } from './ui/button'
@@ -13,7 +13,10 @@ const MealChatForm = () => {
         <div className='space-y-4'>
           <div>
             <Label>Ingredientes</Label>
-            <Input placeholder="Digite os ingredientes da sua refeição separados por vírgula" />
+            <Input
+              placeholder="Digite os ingredientes da sua refeição separados por vírgula"
+              name='ingredients'
+            />
           </div>
 
           <PromptSelect />
@@ -25,7 +28,9 @@ const MealChatForm = () => {
         </Button>
       </form >
 
-      <Textarea placeholder="Resposta da IA..." />
+      <Textarea
+        placeholder="Resposta da IA..."
+      />
     </div>
   )
 }
