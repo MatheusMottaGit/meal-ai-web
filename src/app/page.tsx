@@ -1,6 +1,7 @@
+import MealChatForm from "@/components/meal-chat-form";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
-import { Flag } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { MousePointerClick } from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,16 +18,21 @@ export default function Home() {
           </span>
 
           <Dialog>
-            <DialogTrigger>
-              <Button className="gap-1.5 mt-9 text-zinc-100" variant='outline'>
-                Começar
-                <Flag className="h-4 w-4" />
-              </Button>
+            <DialogTrigger className="flex items-center gap-1 mt-9 text-sm text-zinc-300 border border-zinc-300 rounded-md p-2 font-semibold transition-colors hover:bg-zinc-300 hover:text-zinc-800">
+              Começar
+              <MousePointerClick className="h-4 w-4" />
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <h1>Converse com IA</h1>
+                <DialogTitle>
+                  Converse com a IA
+                </DialogTitle>
+                <DialogDescription>
+                  Se atente às instruções do chat abaixo.
+                </DialogDescription>
               </DialogHeader>
+
+              <MealChatForm />
             </DialogContent>
           </Dialog>
         </div>
