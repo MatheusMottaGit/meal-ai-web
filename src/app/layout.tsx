@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { Inter as FontSans } from 'next/font/google'
+import { Inter as FontSans, Roboto } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { ChefHat, ShoppingBag } from 'lucide-react'
 
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans'
+})
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-roboto'
 })
 
 export const metadata: Metadata = {
@@ -20,8 +28,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("font-sans text-nyanza", fontSans.variable)}>
-        {children}
+      <body className={`${fontSans.variable} ${roboto.variable} font-sans`}>
+        <main className="min-h-screen flex flex-col bg-[url('../assets/main.png')] bg-cover bg-fixed">
+          <header className='flex items-center justify-between px-6 py-2 shadow-xl'>
+            <div className='font-bold flex items-center gap-1 text-zinc-300'>
+              tastebot.ai
+              <ChefHat className='h-5 w-5' />
+            </div>
+
+            <ul className='flex text-sm font-semibold text-zinc-300 gap-6'>
+              <li>Home</li>
+              <li>Contato</li>
+              <li>Sobre Nós</li>
+            </ul>
+
+            <Button variant='outline' className='gap-2 text-zinc-300 text-xs'>
+              Ver produtos
+              <ShoppingBag className='w-4 h-4' />
+            </Button>
+          </header>
+
+          {children}
+        </main>
       </body>
     </html>
   )
