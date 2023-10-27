@@ -7,24 +7,22 @@ import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import PromptSelect from './prompt-select'
 import { useCompletion } from 'ai/react'
+import 'dotenv/config'
 
 const MealChatForm = () => {
   const promptRef = useRef<HTMLInputElement>(null)
-
-  function handleInputPrompt(): string | undefined {
-    const prompt = promptRef.current?.value
-    return prompt
-  }
+  const prompt = promptRef.current?.value
 
   const {
     setInput,
     input,
+    handleInputChange,
     completion,
     handleSubmit
   } = useCompletion({
     api: 'http://localhost:3333/ai/completion',
     body: {
-      prompt: handleInputPrompt()
+      prompt
     },
     headers: {
       'Content-Type': 'application/json'
@@ -58,6 +56,7 @@ const MealChatForm = () => {
         <Textarea
           placeholder='Preview da instrução para IA...'
           value={input}
+          onChange={handleInputChange}
         />
       </div>
 
