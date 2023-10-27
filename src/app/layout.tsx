@@ -36,12 +36,6 @@ export default function RootLayout({
               <ChefHat className='h-5 w-5' />
             </div>
 
-            <ul className='flex text-sm font-semibold text-zinc-300 gap-6'>
-              <li>Home</li>
-              <li>Contato</li>
-              <li>Sobre Nós</li>
-            </ul>
-
             <Button variant='outline' className='gap-2 text-zinc-300 text-xs'>
               Ver histórico
               <BookOpen className='w-4 h-4' />
