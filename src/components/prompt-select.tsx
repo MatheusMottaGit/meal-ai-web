@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { Label } from './ui/label'
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectItem } from './ui/select'
 import { api } from '@/lib/axios'
@@ -13,9 +14,14 @@ interface PromptSelectedProps {
   onPromptSelected: (template: string) => void
 }
 
-const PromptSelect = async () => {
-  const response = await api.get('/prompts')
-  const prompts: Prompt[] = response.data
+const PromptSelect = (props: PromptSelectedProps) => {
+  const [prompts, setPrompts] = useState<Prompt[]>([])
+
+  useEffect(() => {
+    api.get('/prompts').then(response => {
+      setPrompts(response.data)
+    })
+  }, [])
 
   function handlePromptSelected(promptId: string) {
     const selectedPrompt = prompts.find(prompt => promptId === prompt.id)
@@ -23,6 +29,8 @@ const PromptSelect = async () => {
     if (!selectedPrompt) {
       return
     }
+
+    props.onPromptSelected(selectedPrompt.template)
   }
 
   return (
