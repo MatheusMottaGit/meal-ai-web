@@ -1,5 +1,4 @@
 import MealChatForm from "@/components/meal-chat-form";
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { MousePointerClick } from "lucide-react";
 
